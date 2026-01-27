@@ -1,0 +1,216 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+/* NAVBAR */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 10%;
+    background:#111;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+.logo{
+    color:#00eaff;
+}
+nav ul{
+    display:flex;
+    list-style:none;
+}
+nav ul li a{
+    color:white;
+    margin-left:20px;
+    text-decoration:none;
+    transition:color 0.3s;
+}
+nav ul li a:hover{
+    color:#00eaff;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(to right,#141e30,#243b55);
+    color:white;
+    text-align:center;
+}
+.hero-text{
+    animation:fadeIn 1.5s ease;
+}
+.hero span{
+    color:#00eaff;
+}
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 30px;
+    background:#00eaff;
+    color:black;
+    text-decoration:none;
+    border-radius:30px;
+    animation:pulse 2s infinite;
+}
+
+/* SECTIONS */
+.section{
+    padding:70px 10%;
+    animation:slideUp 1.2s ease;
+}
+.section h2{
+    text-align:center;
+    margin-bottom:40px;
+    color:#00adb5;
+}
+.dark{
+    background:#1e1e2f;
+    color:white;
+}
+
+/* ABOUT */
+.about{
+    display:flex;
+    gap:30px;
+    align-items:center;
+}
+.about img{
+    width:180px;
+    border-radius:50%;
+    animation:float 3s infinite;
+}
+
+/* SKILLS */
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+.card{
+    background:#00adb5;
+    padding:20px;
+    text-align:center;
+    border-radius:10px;
+    transition:0.3s;
+}
+.card:hover{
+    transform:translateY(-10px) scale(1.05);
+}
+
+/* SERVICES */
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+.service{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    transition:0.3s;
+}
+.service:hover{
+    transform:translateY(-10px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* PROJECTS */
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+.project{
+    background:#2c2c54;
+    padding:20px;
+    border-radius:10px;
+    transition:0.3s;
+}
+.project:hover{
+    transform:scale(1.05);
+}
+
+/* CONTACT */
+.contact{
+    text-align:center;
+}
+
+/* FOOTER */
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes slideUp{
+    from{opacity:0; transform:translateY(60px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+@keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(0,234,255,0.7);}
+    70%{box-shadow:0 0 0 20px rgba(0,234,255,0);}
+    100%{box-shadow:0 0 0 0 rgba(0,234,255,0);}
+}
+/* ACHIEVEMENTS */
+.achievements{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+.achievement-card{
+    background:#2c2c54;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    transition:0.4s ease;
+    animation:fadeIn 1.5s ease;
+}
+
+.achievement-card h3{
+    color:#00eaff;
+    margin-bottom:15px;
+}
+
+.achievement-card p{
+    font-size:15px;
+    line-height:1.6;
+}
+
+/* Hover Animation */
+.achievement-card:hover{
+    transform:translateY(-12px) scale(1.05);
+    box-shadow:0 15px 30px rgba(0,0,0,0.4);
+}
+
+
