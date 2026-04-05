@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Central Library | Facilities & Timings | Official Portal</title>
+    <!-- Google Fonts & Simple Icons CDN (Font Awesome 6 Free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, 'Poppins', system-ui, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #e9f0f5 0%, #f1f7fc 100%);
+            color: #1a2c3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Header & Nav */
+        .header {
+            background: #0b2b3b;
+            color: white;
+            padding: 1.2rem 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 1.7rem;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: #f4c542;
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #f0f4f8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 1.05rem;
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            border-bottom-color: #f4c542;
+            color: #ffdf9c;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1f4e6e, #0f2c3b);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+        }
+        .hero h2 {
+            font-size: 2.6rem;
+            font-weight: 700;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 1rem auto 0;
+            opacity: 0.9;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto 3rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Facility Cards Grid */
+        .section-title {
+            font-size: 2rem;
+            margin: 2rem 0 1.5rem 0;
+            border-left: 7px solid #f4c542;
+            padding-left: 1rem;
+            color: #1e3a4d;
+        }
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 1.8rem;
+        }
+        .card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.12);
+        }
+        .card-icon {
+            background: #eef3fa;
+            padding: 1.8rem 0 0.5rem 0;
+            text-align: center;
+            font-size: 3.2rem;
+            color: #1f6e8c;
+        }
+        .card-content {
+            padding: 1.5rem;
+        }
+        .card-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.6rem;
+            color: #0b2b3b;
+        }
+        .card-content p {
+            color: #2c4c64;
+            margin-bottom: 0.8rem;
+        }
+        .time-badge {
+            background: #eef2f5;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #005f73;
+            margin-top: 0.5rem;
+        }
+        .time-badge i {
+            margin-right: 6px;
+        }
+
+        /* Time duration overview table style */
+        .timing-section {
+            background: white;
+            border-radius: 32px;
+            margin: 2rem 0;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .timing-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .timing-table th, .timing-table td {
+            padding: 1rem 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #dce5ec;
+        }
+        .timing-table th {
+            background: #eef3fa;
+            font-weight: 700;
+            color: #144d66;
+        }
+        .special-note {
+            background: #fff7e5;
+            padding: 0.8rem;
+            border-radius: 20px;
+            margin-top: 1.2rem;
+            font-size: 0.9rem;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Form Section (Submit to Library Head) */
+        .form-section {
+            background: #ffffffdd;
+            backdrop-filter: blur(2px);
+            border-radius: 36px;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+            padding: 2rem 2rem 2.5rem;
+            margin: 3rem 0 2rem;
+            border: 1px solid rgba(244, 197, 66, 0.3);
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .form-header i {
+            font-size: 2.8rem;
+            background: #f4c54220;
+            padding: 0.8rem;
+            border-radius: 60px;
+            color: #b96f0f;
+        }
+        .form-header h3 {
+            font-size: 1.9rem;
+            margin-top: 0.5rem;
+        }
+        .library-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .input-group label {
+            font-weight: 600;
+            color: #1e3a4d;
+            font-size: 0.95rem;
+        }
+        .input-group input, .input-group select, .input-group textarea {
+            padding: 0.9rem 1rem;
+            border: 1.5px solid #cbdfea;
+            border-radius: 28px;
+            font-size: 1rem;
+            transition: 0.2s;
+            background: white;
+        }
+        .input-group input:focus, .input-group select:focus, .input-group textarea:focus {
+            outline: none;
+            border-color: #f4c542;
+            box-shadow: 0 0 0 3px rgba(244,197,66,0.2);
+        }
+        .btn-submit {
+            background: #0b2b3b;
+            color: white;
+            border: none;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 44px;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-submit:hover {
+            background: #1f4e6e;
+            transform: scale(1.01);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+        }
+        .success-msg {
+            background: #d4edda;
+            color: #155724;
+            padding: 0.8rem;
+            border-radius: 50px;
+            text-align: center;
+            margin-top: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f2c3b;
+            color: #cddfe7;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+        .footer a {
+            color: #f4c542;
+            text-decoration: none;
+        }
+
+        @media (max-width: 700px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            .hero h2 {
+                font-size: 1.9rem;
+            }
+            .container {
+                padding: 0 1.2rem;
+            }
+            .timing-table th, .timing-table td {
+                padding: 0.7rem 0.4rem;
+                font-size: 0.85rem;
+            }
+        }
+        .highlight {
+            font-weight: 700;
+            color: #c26b0a;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="nav-container">
+        <div class="logo">
+            <h1><i class="fas fa-landmark"></i> JAY Library</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
+            <a href="#facilities"><i class="fas fa-cubes"></i> Facilities</a>
+            <a href="#timings"><i class="fas fa-clock"></i> Timings</a>
+            <a href="#contactHead"><i class="fas fa-envelope-open-text"></i> Submit to Head</a>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <h2>📖 Knowledge, Innovation & Community</h2>
+    <p>Explore world-class facilities, flexible timings, and connect directly with the Library Head. Your gateway to limitless learning.</p>
+</section>
+
+<div class="container">
+    <!-- Facilities Section -->
+    <div id="facilities">
+        <div class="section-title">
+            <i class="fas fa-building" style="margin-right: 12px;"></i> Premium Library Facilities
+        </div>
+        <div class="facility-grid">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-book-open"></i></div>
+                <div class="card-content">
+                    <h3>Reading Halls</h3>
+                    <p>Spacious AC halls with 300+ seating, silent zones, ergonomic chairs, and individual study carrels.</p>
+                    <div class="time-badge"><i class="far fa-clock"></i> Available: Mon-Sun | 6 AM – 12 AM</div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+                <div class="card-content">
+                    <h3>Digital Hub & E-Library</h3>
+                    <p>High-speed WiFi, 50+ public computers, access to e-journals, audiobooks, and research databases.</p>
+                    <div class="time-badge"><i class="far fa-clock"></i> 8 AM – 10 PM (All days)</div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-children"></i></div>
+                <div class="card-content">
+                    <h3>Children’s Nook</h3>
+                    <p>Kid-friendly zone with picture books, educational games, storytelling corner and colorful furniture.</p>
+                    <div class="time-badge"><i class="far fa-clock"></i> 9 AM – 7 PM (Weekdays)</div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-wheelchair"></i></div>
+                <div class="card-content">
+                    <h3>Accessibility & Assistive Tech</h3>
+                    <p>Wheelchair ramps, braille section, audio readers, and designated accessible study desks.</p>
+                    <div class="time-badge"><i class="far fa-clock"></i> Throughout operating hours</div>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-chalkboard-user"></i></div>
+                <div class="card-content">
+                    <h3>Group Study Rooms</h3>
+                    <p>6 soundproof meeting rooms with whiteboards, projectors for collaborative learning & workshops.</p>
+                    <div class="time-badge"><i class="far fa-clock"></i> 9 AM – 9 PM | Booking required</div>
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-mug-hot"></i></div>
+                <div class="card-content">
+                    <h3>Café & Lounge Zone</h3>
+                    <p>In-house café with healthy snacks, beverages, and a relaxing seating area for informal discussions.</p>
+                    <div class="time-badge"><i class="far fa-clock"></i> 8:30 AM – 8 PM (Mon-Sat)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Time Duration Table + details -->
+    <div id="timings">
+        <div class="section-title">
+            <i class="fas fa-hourglass-half"></i> Operating Hours & Time Durations
+        </div>
+        <div class="timing-section">
+            <table class="timing-table">
+                <thead>
+                    <tr><th>Facility / Section</th><th>Monday - Friday</th><th>Saturday - Sunday</th><th>Special Holidays</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><i class="fas fa-book"></i> Main Reading Hall</td><td>6:00 AM – 12:00 AM</td><td>7:00 AM – 11:00 PM</td><td>9:00 AM – 6:00 PM</td></tr>
+                    <tr><td><i class="fas fa-microchip"></i> Digital & Media Lab</td><td>8:00 AM – 10:00 PM</td><td>9:00 AM – 9:00 PM</td><td>Closed on National Holidays</td></tr>
+                    <tr><td><i class="fas fa-archive"></i> Rare Books & Archives</td><td>10:00 AM – 5:00 PM</td><td>By Appointment Only</td><td>Closed</td></tr>
+                    <tr><td><i class="fas fa-users"></i> Group Study Rooms</td><td>9:00 AM – 9:00 PM</td><td>10:00 AM – 8:00 PM</td><td>Limited slots</td></tr>
+                    <tr><td><i class="fas fa-child"></i> Children’s Section</td><td>9:00 AM – 7:00 PM</td><td>10:00 AM – 6:00 PM</td><td>10:00 AM – 4:00 PM</td></tr>
+                    <tr><td><i class="fas fa-print"></i> Printing & Scanning Hub</td><td>8:30 AM – 8:30 PM</td><td>9:30 AM – 6:30 PM</td><td>Closed on 2nd Saturday</td></tr>
+                </tbody>
+            </table>
+            <div class="special-note">
+                <i class="fas fa-info-circle" style="font-size: 1.4rem;"></i>
+                <span><span class="highlight">📌 Note:</span> Library timings may extend during exam periods. Last entry 30 minutes before closing. 24/7 digital access via e-library portal for members.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FORM TO SUBMIT TO LIBRARY HEAD -->
+    <div id="contactHead" class="form-section">
+        <div class="form-header">
+            <i class="fas fa-user-tie"></i>
+            <h3>📋 Submit a Request / Suggestion to Library Head</h3>
+            <p>Directly communicate with the Chief Librarian — feedback, facility requests, membership queries, or special assistance.</p>
+        </div>
+        <form id="libraryHeadForm" class="library-form">
+            <div class="input-group">
+                <label><i class="fas fa-user"></i> Full Name *</label>
+                <input type="text" id="fullName" placeholder="e.g., Ananya Sharma" required>
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-envelope"></i> Email Address *</label>
+                <input type="email" id="email" placeholder="you@example.com" required>
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-id-card"></i> Library Card Number (Optional)</label>
+                <input type="text" id="cardNumber" placeholder="L-12345678">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-tag"></i> Concern / Topic *</label>
+                <select id="topic" required>
+                    <option value="" disabled selected>-- Select an option --</option>
+                    <option value="Facility Improvement">📚 Facility Improvement</option>
+                    <option value="Timings & Scheduling">⏰ Timings & Scheduling</option>
+                    <option value="Book Donation / Purchase">📖 Book Donation / Purchase Request</option>
+                    <option value="Event or Workshop">🎤 Event / Workshop Proposal</option>
+                    <option value="General Feedback">💬 General Feedback / Compliment</option>
+                    <option value="Accessibility Support">♿ Accessibility Support</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-pen-alt"></i> Message / Details *</label>
+                <textarea rows="4" id="message" placeholder="Describe your request, suggestion, or query for the Library Head..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Submit to Library Head</button>
+            <div id="formFeedback" style="min-height: 55px;"></div>
+        </form>
+    </div>
+</div>
+
+<footer class="footer">
+    <p><i class="fas fa-copyright"></i> 2026 JAY LIBRARY TILOUTHU — Empowering minds through knowledge. All facilities, timings are subject to change with prior notice.</p>
+    <p style="margin-top: 8px;">📍 Located: JIO Office Tilouthu Rohtas(Bihar)| ☎️ Helpdesk: +91 8539854249 | ✉️ head.library@grandlib.org</p>
+    <p>✨ <a href="#"><i class="fas fa-arrow-up"></i> Back to Top</a></p>
+</footer>
+
+<script>
+    // smooth scroll for anchor links
+    document.querySelectorAll('.nav-links a, .footer a[href="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const hash = this.getAttribute('href');
+            if (hash === "#") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (hash && hash.startsWith("#") && hash !== "#") {
+                e.preventDefault();
+                const targetId = hash.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
+    });
+
+    // library head form submission with "best" user experience: show success & reset optional fields, keep style
+    const form = document.getElementById('libraryHeadForm');
+    const feedbackDiv = document.getElementById('formFeedback');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Get field values
+        const fullName = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const topic = document.getElementById('topic').value;
+        const message = document.getElementById('message').value.trim();
+        
+        // validation
+        if (!fullName) {
+            showFeedback('❌ Please enter your full name.', 'error');
+            return;
+        }
+        if (!email || !email.includes('@') || !email.includes('.')) {
+            showFeedback('❌ Valid email address is required.', 'error');
+            return;
+        }
+        if (!topic) {
+            showFeedback('❌ Please select a topic / concern.', 'error');
+            return;
+        }
+        if (!message || message.length < 5) {
+            showFeedback('❌ Message should be at least 5 characters.', 'error');
+            return;
+        }
+
+        // Simulate successful submission to Library Head (no actual backend, but perfect UI)
+        // Prepare data summary
+        const cardNumber = document.getElementById('cardNumber').value.trim() || "Not provided";
+        
+        // Build a friendly success response that includes details for confirmation
+        const submissionData = {
+            name: fullName,
+            email: email,
+            card: cardNumber,
+            topic: topic,
+            message: message,
+            timestamp: new Date().toLocaleString()
+        };
+        
+        console.log("Library Head Submission:", submissionData);
+        
+        // Show dynamic success message with some details (best interactive feedback)
+        showFeedback(`
+            <i class="fas fa-check-circle" style="margin-right: 8px;"></i> 
+            ✅ <strong>Successfully submitted to Library Head!</strong><br>
+            Dear ${escapeHtml(fullName)}, your request regarding <strong>"${escapeHtml(topic)}"</strong> has been received. 
+            The Head Librarian will respond within 2 business days at ${escapeHtml(email)}.<br>
+            <span style="font-size:0.85rem;">📌 Reference ID: #LIB${Math.floor(Math.random()*90000+10000)}</span>
+        `, 'success');
+        
+        // Optionally reset only message field? Or keep form filled? Let's reset the form but keep optional style? 
+        // Better: clear message and optionally reset topic to default? But good UX: keep name/email for convenience? 
+        // But after submission we can clear only message and keep main fields, but it's more user friendly to reset the message field and topic placeholder? 
+        // To avoid confusion, we clear the message, topic reset to placeholder, keep name/email/card so they don't re-type if another request.
+        document.getElementById('message').value = '';
+        document.getElementById('topic').selectedIndex = 0;
+        // but we don't clear name/email for consecutive submissions (better experience)
+        // also we can optionally focus on message for next entry
+        document.getElementById('message').focus();
+        
+        // also we could add small effect
+        const btn = form.querySelector('.btn-submit');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+        }, 2000);
+        
+        // scroll to feedback gently
+        feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+    
+    function showFeedback(msg, type) {
+        feedbackDiv.innerHTML = `<div class="success-msg" style="${type === 'error' ? 'background:#f8d7da; color:#721c24;' : 'background:#d4edda; color:#155724;'}">${msg}</div>`;
+        setTimeout(() => {
+            if (type !== 'error') {
+                // keep success for 6 seconds, then optionally remove but keep user satisfaction
+                setTimeout(() => {
+                    if (feedbackDiv.innerHTML.includes('Successfully submitted')) {
+                        // optional: fade out after 7 secs but not necessary, just keep it user sees confirmation
+                    }
+                }, 5000);
+            } else {
+                setTimeout(() => {
+                    const errorDiv = feedbackDiv.querySelector('.success-msg');
+                    if (errorDiv && type==='error') {
+                        // error fades after 4 sec
+                        setTimeout(() => { feedbackDiv.innerHTML = ''; }, 3000);
+                    }
+                }, 3000);
+            }
+        }, 100);
+    }
+    
+    // simple escape to avoid injection in feedback
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+            return c;
+        });
+    }
+    
+    // initial active highlight on scroll
+    const sections = ['facilities', 'timings', 'contactHead'];
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const scrollPos = window.scrollY + 120;
+        sections.forEach(id => {
+            const section = document.getElementById(id);
+            if(section) {
+                const offsetTop = section.offsetTop;
+                const offsetBottom = offsetTop + section.offsetHeight;
+                if(scrollPos >= offsetTop && scrollPos < offsetBottom) {
+                    current = id;
+                }
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if(href === `#${current}`) {
+                link.classList.add('active');
+            } else if(current === '' && href === '#') {
+                // home
+                if(window.scrollY < 100) navLinks[0].classList.add('active');
+            }
+        });
+        if(window.scrollY < 80) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            navLinks[0].classList.add('active');
+        }
+    });
+    // manual trigger
+    window.dispatchEvent(new Event('scroll'));
+</script>
+</body>
+</html>
